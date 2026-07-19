@@ -261,9 +261,15 @@ logger = logging.getLogger(__name__)
 
 @app.on_event("startup")
 async def seed_products():
-    if await db.products.count_documents({}) == 0:
-        await db.products.insert_many([dict(p) for p in SAMPLE_PRODUCTS])
-        logger.info("Seeded sample products")
+    try:
+        await client.admin.command("ping")
+
+        if await db.products.count_documents({}) == 0:
+            await db.products.insert_many([dict(p) for p in SAMPLE_PRODUCTS])
+            logger.info("Seeded sample products")
+
+    except Exception as e:
+        logger.exception(f"MongoDB startup failed: {e}")
 
 
 @app.on_event("shutdown")
