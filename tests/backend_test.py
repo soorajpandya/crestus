@@ -6,7 +6,7 @@ import os
 import pytest
 import requests
 
-BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://vogue-market-30.preview.emergentagent.com").rstrip("/")
+BASE_URL = os.environ.get("REACT_APP_BACKEND_URL", "https://crestus-api.onrender.com").rstrip("/")
 SESSION_TOKEN = os.environ.get("TEST_SESSION_TOKEN", "test_session_1784395346051")
 
 
