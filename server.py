@@ -26,7 +26,7 @@ client = AsyncIOMotorClient(
 )
 db = client["crestus"]
 
-rzp_client = razorpay.Client(auth=("rzp_live_T90GND0ajO0iOx", "A9ysolOxDDd3bVupKZ7V5Lj9"))
+rzp_client = razorpay.Client(auth=("rzp_live_TFSKxf14xAZNfP", "P4eggo5hJCxCdmVx51GTfnKG"))
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
