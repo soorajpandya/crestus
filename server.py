@@ -16,7 +16,10 @@ ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
 mongo_url = "mongodb+srv://burptechbaas:Burptech101023@burptechbasscluster.izs8m4z.mongodb.net/?appName=burptechbasscluster"
-client = AsyncIOMotorClient(mongo_url)
+client = AsyncIOMotorClient(
+    mongo_url,
+    serverSelectionTimeoutMS=30000,
+)
 db = client["crestus"]
 
 rzp_client = razorpay.Client(auth=("rzp_live_T90GND0ajO0iOx", "A9ysolOxDDd3bVupKZ7V5Lj9"))
