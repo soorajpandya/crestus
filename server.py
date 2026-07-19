@@ -23,7 +23,16 @@ client = AsyncIOMotorClient(
 db = client["crestus"]
 
 rzp_client = razorpay.Client(auth=("rzp_live_T90GND0ajO0iOx", "A9ysolOxDDd3bVupKZ7V5Lj9"))
-
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://crestuseccommerce.store",
+        "https://www.crestuseccommerce.store",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 app = FastAPI()
 api_router = APIRouter(prefix="/api")
 
