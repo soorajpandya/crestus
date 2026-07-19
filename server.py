@@ -12,6 +12,10 @@ from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime, timezone, timedelta
 
+app = FastAPI()
+api_router = APIRouter(prefix="/api")
+
+
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
@@ -33,8 +37,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-app = FastAPI()
-api_router = APIRouter(prefix="/api")
+
 
 AUTH_SESSION_URL = "https://demobackend.emergentagent.com/auth/v1/env/oauth/session-data"
 
