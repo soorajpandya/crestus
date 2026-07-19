@@ -15,7 +15,7 @@ from datetime import datetime, timezone, timedelta
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-mongo_url = "mongodb+srv://burptechbaas:Burptech101023@burptechbasscluster.izs8m4z.mongodb.net/?appName=burptechbasscluster"
+mongo_url = "mongodb+srv://burptechbaas:Burptech101023@burptechbasscluster.izs8m4z.mongodb.net/crestus?retryWrites=true&w=majority&appName=burptechbasscluster"
 client = AsyncIOMotorClient(
     mongo_url,
     serverSelectionTimeoutMS=30000,
